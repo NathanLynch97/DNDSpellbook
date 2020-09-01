@@ -1,0 +1,7 @@
+<div>
+    <h1><%= spell.name %></h1>
+    <h6>Range: <%= spell.range %><br>
+    Components: <% spell.components.forEach(function(c) {%> <%= c %> <% }); %></h6>
+    <p><%= spell.desc %><br>
+    <%= spell.higher_level %></p>
+</div>
