@@ -1,14 +1,24 @@
-var mongoose = require('mongoose');
+var mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-var userSchema = new Schema({
+const characterSchema = new Schema({
   name: String,
-  email: String,
-  avatar: String,
-  googleId: String
-}, {
-  timestamps: true
+  class: String,
+  level: Number
 });
 
-module.exports = mongoose.model('User', userSchema);
+const userSchema = new Schema(
+  {
+    name: String,
+    email: String,
+    avatar: String,
+    googleId: String,
+    characters: [characterSchema],
+  },
+  {
+    timestamps: true,
+  }
+);
+
+module.exports = mongoose.model("User", userSchema);

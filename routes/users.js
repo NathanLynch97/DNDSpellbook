@@ -5,5 +5,7 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.render('users/index', {title: 'Characters'});
 });
+// GET new character form
+router.get('/characters/new', )
 
 module.exports = router;

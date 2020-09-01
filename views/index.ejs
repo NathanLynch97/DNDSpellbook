@@ -1,3 +1,11 @@
 <%- include('./partials/header') %>
 
+<div>
+  <ul>
+    <% spellData.results.forEach(function(r){ %>
+    <li><%= r.name %></li>
+    <% }); %>
+  </ul>
+</div>
+
 <%- include('./partials/footer') %>
