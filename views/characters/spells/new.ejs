@@ -1,0 +1,14 @@
+<%- include('../../partials/header') %>
+
+<form action="/characters/<%= character._id %>/spells" method="POST">
+    <label>Name:
+      <select multiple name="index" id="">
+        <% spellData.forEach(function(s) { %>
+          <option value="<%= s.index %>"><%= s.name %></option>
+        <% }) %>
+      </select>
+    </label><br>
+    <input type="submit" value="Add Spell">
+</form>
+
+<%- include('../../partials/footer') %>

@@ -2,7 +2,7 @@
 
 <div>
   <ul>
-    <% spellData.results.forEach(function(r){ %>
+    <% spellData.forEach(function(r){ %>
     <li><a href="/<%= r.index %>"><%= r.name %></a></li>
     <% }); %>
   </ul>

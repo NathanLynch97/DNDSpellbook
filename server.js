@@ -16,8 +16,10 @@ require('./config/database');
 // configure Passport
 require('./config/passport');
 
-var indexRouter = require('./routes/index');
-var characterRouter = require('./routes/characters');
+// Routers
+const indexRouter = require('./routes/index');
+const characterRouter = require('./routes/characters');
+const spellRouter = require('./routes/spells');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -43,6 +45,8 @@ app.use(function (req, res, next) {
   next();
 });
 
+// Using routers
+app.use('/', spellRouter);
 app.use('/characters', characterRouter);
 app.use('/', indexRouter);
 
