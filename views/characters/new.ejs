@@ -1,0 +1,17 @@
+<%- include('../partials/header') %>
+
+<form action="/characters" method="POST">
+    <label>Name:
+      <input type="text" name="name">
+    </label><br>
+    <label>Class:
+        <input type="text" name="class">
+    </label><br>
+    <label>Level (1-20):
+      <input type="text" name="level">
+    </label><br>
+    <input type="submit" value="Add Character">
+  </form>
+  
+
+<%- include('../partials/footer') %>
