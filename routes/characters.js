@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.render('users/index', {title: 'Characters'});
+  res.render('characters/index', {title: 'Characters'});
 });
 // GET new character form
 router.get('/characters/new', )
