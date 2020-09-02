@@ -1,7 +1,18 @@
 <div>
-    <h1><%= spell.name %></h1>
-    <h6>Range: <%= spell.range %><br>
-    Components: <% spell.components.forEach(function(c) {%> <%= c %> <% }); %></h6>
-    <p><%= spell.desc %><br>
-    <%= spell.higher_level %></p>
+  <h1><%= spell.name %></h1>
+  <h6>
+    Level: <%= spell.level %><br />
+    Range: <%= spell.range %><br />
+    Casting Time: <%= spell.casting_time %><br />
+    Duration: <%= spell.duration %><br />
+    Ritual: <%= spell.ritual ? 'Yes' : 'No' %><br />
+    Components: <% spell.components.forEach(function(c) {%> <%= c %> <% }); %><br />
+    Materials: <%= spell.material %><br />
+    Concentration: <%= spell.concentration ? 'Yes' : 'No' %><br />
+    School: <%= spell.school.name %>
+  </h6>
+  <p>
+    <%= spell.desc %><br />
+    <%= spell.higher_level %>
+  </p>
 </div>
