@@ -3,7 +3,8 @@ const Character = require('../models/character');
 module.exports = {
     index,
     new: newCharacter,
-    create
+    create,
+    show
 };
 
 function index(req, res, next) {
@@ -16,10 +17,16 @@ function newCharacter(req, res, next) {
     res.render('characters/new');
 }
 
-function create(req, res) {
+function create(req, res, next) {
     const character = new Character(req.body);
     character.save(function(err) {
         if (err) return res.render('characters/new');
         res.redirect('/characters');
+    })
+}
+
+function show(req, res, next) {
+    Character.findById(req.params.id, function(err, character) {
+        res.render('characters/show', {character});
     })
 }

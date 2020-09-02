@@ -4,10 +4,10 @@
 <h2>Characters:</h2>
     <% if(characters) { %>
     <% characters.forEach(function(c){ %>
-        <h3><%= c.name %></h3>
+        <h3><a href="/characters/<%= c._id %>"><%= c.name %></a></h3>
         <h3><%= c.class %></h3>
         <h3>Level: <%= c.level %></h3>
-    <% }) %>
+    <% }); %>
     <% } %>
 <a href="/characters/new">New Character</a>
 

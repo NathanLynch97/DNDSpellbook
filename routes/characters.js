@@ -6,6 +6,8 @@ const charactersCtrl = require('../controllers/characters');
 router.get('/', charactersCtrl.index);
 // GET new character form
 router.get('/new', charactersCtrl.new);
+// GET show character
+router.get('/:id', charactersCtrl.show);
 //POST new character
 router.post('/', charactersCtrl.create);
 
