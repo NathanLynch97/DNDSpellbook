@@ -10,6 +10,7 @@ const rootURL = "https://www.dnd5eapi.co/api/spells";
 module.exports = {
   new: newSpell,
   addSpell,
+  delSpell
 };
 
 function newSpell(req, res) {
@@ -29,8 +30,7 @@ function newSpell(req, res) {
 }
 
 function addSpell(req, res) {
-  Character.findById(req.params.id, function (err, character) {
-      console.log(req.body);
+  Character.findById(req.params.id, function(err, character) {
       if (typeof req.body.index == 'object') {
             for (let i = 0; i < req.body.index.length; i++) {
               let spell = { index: req.body.index[i] };
@@ -38,7 +38,6 @@ function addSpell(req, res) {
             }
     } else {
         character.spells.push(req.body);
-        //character.spells.sort()
     }
     character.save(function (err, c) {
       if (err) {
@@ -48,4 +47,17 @@ function addSpell(req, res) {
       res.redirect(`/characters/${character._id}`);
     });
   });
+}
+
+function delSpell(req, res, next) {
+    Character.findById(req.params.id, function(err, character) {
+        character.spells.map(function(spell) {
+            if (spell.index == req.params.index) {
+                spell.remove();
+            }
+        });
+        character.save(function(err) {
+            res.redirect(`/characters/${character._id}`);
+        })
+    })
 }

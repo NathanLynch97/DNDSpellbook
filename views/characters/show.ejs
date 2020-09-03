@@ -2,19 +2,24 @@
 
 <a href="/characters/<%= character._id %>/spells/new">New Spell</a>
 <h1><%= character.name %></h1>
+<a href="/characters/<%= character._id %>/edit">Edit Character</a>
+<h3>Class: <%= character.class %></h3>
+<h3>Level: <%= character.level %></h3>
 <% spellInfo.forEach(function(spell) { %>
     <div>
-        <h1><%= spell.name %></h1>
+        <h1><%= spell.name %><form action="/characters/<%= character._id %>/spells/<%= spell.index %>?_method=DELETE" method="POST" class="secondary-content">
+            <button type="submit" class="btn-small red-text">X</button>
+          </form></h1>
         <h6>
           Level: <%= spell.level %><br />
           Range: <%= spell.range %><br />
           Casting Time: <%= spell.casting_time %><br />
           Duration: <%= spell.duration %><br />
           Ritual: <%= spell.ritual ? 'Yes' : 'No' %><br />
-          Components: <%# spell.components.forEach(function(c) {%> <%#= c %> <%# }); %><br />
+          Components: <% spell.components.forEach(function(c) {%> <%= c %> <% }); %><br />
           Materials: <%= spell.material %><br />
           Concentration: <%= spell.concentration ? 'Yes' : 'No' %><br />
-          School: <%#= spell.school.name %>
+          School: <%= spell.school.name %>
         </h6>
         <p>
           <%= spell.desc %><br />

@@ -8,7 +8,10 @@ module.exports = {
     index,
     new: newCharacter,
     create,
-    show
+    show,
+    delChar,
+    edit,
+    update
 };
 
 function index(req, res, next) {
@@ -55,4 +58,26 @@ async function show(req, res, next) {
             console.log(err)
         }
     })
+}
+
+function delChar(req, res, next) {
+    Character.findById(req.params.id, function(err, character) {
+        character.remove();
+        res.redirect('/characters');
+    })
+}
+
+function edit(req, res, next) {
+    Character.findById(req.params.id, function(err, character) {
+        res.render('characters/edit', {character});
+    })
+}
+
+function update(req, res, next) {
+    Character.findByIdAndUpdate(req.params.id, req.body, function(err, character) {
+     if (err) {
+       console.log(err)
+    }
+     res.redirect(`/characters/${character._id}`);
+    });
 }

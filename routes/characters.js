@@ -10,5 +10,11 @@ router.get('/new', charactersCtrl.new);
 router.get('/:id', charactersCtrl.show);
 //POST new character
 router.post('/', charactersCtrl.create);
+//DELETE character
+router.delete('/:id', charactersCtrl.delChar);
+//EDIT character
+router.get('/:id/edit', charactersCtrl.edit);
+//PUT Update character
+router.put('/:id', charactersCtrl.update);
 
 module.exports = router;
