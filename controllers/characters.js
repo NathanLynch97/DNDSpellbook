@@ -25,6 +25,7 @@ function newCharacter(req, res, next) {
 }
 
 function create(req, res, next) {
+    req.body.user = req.user._id;
     const character = new Character(req.body);
     character.save(function(err) {
         if (err) return res.render('characters/new');
