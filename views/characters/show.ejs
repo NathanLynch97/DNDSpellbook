@@ -5,6 +5,10 @@
 <a href="/characters/<%= character._id %>/edit">Edit Character</a>
 <h3>Class: <%= character.class %></h3>
 <h3>Level: <%= character.level %></h3>
+<% spellInfo.sort(function(a, b) { %>
+    <%= console.log(a.name, b.name) %>
+    <% return a.name - b.name %>
+<% }) %>
 <% spellInfo.forEach(function(spell) { %>
     <div>
         <h1><%= spell.name %><form action="/characters/<%= character._id %>/spells/<%= spell.index %>?_method=DELETE" method="POST" class="secondary-content">
