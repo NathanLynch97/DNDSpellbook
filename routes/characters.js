@@ -5,15 +5,15 @@ const charactersCtrl = require('../controllers/characters');
 /* GET users listing. */
 router.get('/', isLoggedIn, charactersCtrl.index);
 // GET new character form
-router.get('/new', charactersCtrl.new);
+router.get('/new', isLoggedIn, charactersCtrl.new);
 // GET show character
-router.get('/:id', charactersCtrl.show);
+router.get('/:id', isLoggedIn, charactersCtrl.show);
 //POST new character
 router.post('/',isLoggedIn, charactersCtrl.create);
 //DELETE character
-router.delete('/:id', charactersCtrl.delChar);
+router.delete('/:id', isLoggedIn, charactersCtrl.delChar);
 //EDIT character
-router.get('/:id/edit', charactersCtrl.edit);
+router.get('/:id/edit', isLoggedIn, charactersCtrl.edit);
 //PUT Update character
 router.put('/:id', charactersCtrl.update);
 
