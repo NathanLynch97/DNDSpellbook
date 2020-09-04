@@ -1,9 +1,48 @@
 body {
-  padding: 50px;
+  padding: 75px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   text-align: center;
+  background-color: #d4ad6d;
 }
 
 a {
   color: #00B7FF;
+}
+
+li {
+  list-style: none;
+}
+
+.spells {
+  color: darkred;
+}
+
+.character {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.new-character {
+  color: blue;
+  font-size: medium;
+}
+
+.characters {
+  color: red;
+  font-size: xx-large;
+}
+
+.new-spell {
+  color: red;
+  font-size: large;
+}
+
+.edit-character {
+  color: red;
+  font-size: large;
+}
+
+.home {
+  font-size: large;
 }

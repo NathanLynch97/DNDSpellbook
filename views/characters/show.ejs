@@ -1,14 +1,14 @@
 <%- include('../partials/header') %>
 
-<a href="/characters/<%= character._id %>/spells/new">New Spell</a>
 <h1><%= character.name %></h1>
-<a href="/characters/<%= character._id %>/edit">Edit Character</a>
 <h3>Class: <%= character.class %></h3>
 <h3>Level: <%= character.level %></h3>
+<a href="/characters/<%= character._id %>/edit" class="edit-character">Edit Character</a><br />
+<a href="/characters/<%= character._id %>/spells/new" class="new-spell">New Spell</a>
 <% spellInfo.forEach(function(spell) { %>
     <div>
         <h1><%= spell.name %><form action="/characters/<%= character._id %>/spells/<%= spell.index %>?_method=DELETE" method="POST" class="secondary-content">
-            <button type="submit" class="btn-small red-text">X</button>
+            <button type="submit" class="btn btn-secondary btn-sm">X</button>
           </form></h1>
         <h6>
           Level: <%= spell.level %><br />
