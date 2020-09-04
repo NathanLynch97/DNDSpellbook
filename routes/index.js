@@ -9,7 +9,6 @@ const rootURL = "https://www.dnd5eapi.co/api/spells";
 /* GET home page. */
 router.get("/", function (req, res, next) {
   axios.get(`${rootURL}`).then(function(response) {
-    console.log(response);
     spellData = response.data.results;
     res.render('index', {spellData});
   })
@@ -36,7 +35,6 @@ router.get("/logout", function (req, res) {
 
 router.get("/:index", function (req, res, next) {
   axios.get(`${rootURL}/${req.params.index}`).then(function(response) {
-    console.log(response.data);
     res.render('show', {spell: response.data});
   })
 });

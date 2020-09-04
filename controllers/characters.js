@@ -36,7 +36,6 @@ function create(req, res, next) {
 async function show(req, res, next) {
   Character.findById(req.params.id, async function (err, character) {
     let spells = character.spells;
-    // console.log(spells);
     let spellInfo = [];
     let promises = [];
     spells.forEach((s) => {
@@ -44,12 +43,10 @@ async function show(req, res, next) {
     });
     try {
       let spellInfo = await Promise.all(promises);
-      // console.log(spellInfo);
       let finalSpellInfo = [];
       spellInfo.forEach(function (s) {
         finalSpellInfo.push(s.data);
       });
-
       finalSpellInfo.sort(function (a, b) {
         console.log(a.index, b.index);
         let textA = a.name.toUpperCase();
