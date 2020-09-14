@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const spellSchema = new Schema({ index: 'string' })
+const spellSchema = new Schema({ index: Array })
 
 const characterSchema = new Schema({
   name: String,
